@@ -8,6 +8,18 @@ It is far more than a "contract-review gadget" - it is a unified office-agent fo
 
 ---
 
+## Why WorkWit
+
+WorkWit is a self-hosted, enterprise-grade AI Agent platform built to make an organization's office work smarter - without giving up control of your data.
+
+- **Fully open source and self-hosted (MIT).** No subscription, no per-seat fees, no vendor lock-in. Run it on your own infrastructure; your data never leaves your servers.
+- **Built for organizations, not just individuals.** Real multi-tenant RBAC (Organization / Department / User) with a single source of truth for permission bits (`FEATURE_REGISTRY`).
+- **Office scenarios out of the box.** Contract review (with Party A / Party B stance) and resume screening (job-profile matching score) ship as built-in modules - no assembly required.
+- **Trivial to deploy and audit.** One `docker compose up`, a single backend container, SQLite storage, and a zero-dependency frontend. No build step; easy to read, fork, and harden.
+- **Unified capability catalog.** Skills, tools, and MCP connectors are merged into one catalog and kept in sync automatically, so adding a capability is one registration, not three integrations.
+- **Safe by default.** User-supplied code runs in a restricted sandbox (AST scan + CPU/memory/process/timeout limits + privilege drop); secrets stay in `.env` / `data/` that are git-ignored.
+- **Extensible by design.** 40+ built-in skills, a Skills Marketplace, a Tool Library, and the MCP connector framework let you grow capabilities continuously.
+
 ## Core Features
 
 - **General-purpose Agent core**: a ReAct (plan-act) loop supporting tool calls, streaming SSE output, and automatic decomposition/execution of multi-step tasks. The model proactively warns when it "claims a file was generated" but never actually invoked a tool (hallucination guard).
@@ -176,7 +188,7 @@ This project is licensed under the [MIT License](./LICENSE). For other licenses 
 - Visualization and monitoring for sub-agent orchestration;
 - More built-in skills / tools (spreadsheets, databases, BI, and more);
 - Multi-instance horizontal scaling (currently single-DB; DB persistence and hot-cache extension points are already reserved);
-- Frontend build tooling (currently zero-dependency vanilla JS).
+- Frontend build tooling (currently zero-de
 
 
 > 中文版 | 
@@ -189,10 +201,22 @@ This project is licensed under the [MIT License](./LICENSE). For other licenses 
 
 ---
 
+## 为什么选 WorkWit
+
+WorkWit 是一个私有化、企业级的 AI 智能体平台，目标是让组织的办公更高效，同时不交出数据的控制权。
+
+- **完全开源 + 私有化部署（MIT）。** 无订阅、无按席位收费、无厂商锁定。部署在你自己的服务器上，数据始终留在你自己的基础设施内。
+- **为组织而生，而非仅面向个人。** 真正的多租户 RBAC（组织 / 部门 / 用户），权限位集中登记于 `FEATURE_REGISTRY` 单一真相源。
+- **办公能力开箱即用。** 合同审核（支持甲方 / 乙方立场）与简历筛选（岗位画像匹配评分）作为内置模块随平台提供，无需自己拼装。
+- **部署与审计极简。** 一条 `docker compose up`、单个后端容器、SQLite 存储、零依赖前端 —— 无构建步骤，易于阅读、fork 与加固。
+- **统一能力目录。** 技能、工具与 MCP 连接器合并为一张目录并自动同步，新增一项能力只需一次登记，而非三次集成。
+- **默认安全。** 用户代码在受限沙箱中执行（静态扫描 + 资源限额 + 降权），密钥留在 `.env` / `data/`（已被 .gitignore 忽略）。
+- **为扩展而生。** 40+ 内置技能 + 技能广场 + 工具库 + MCP 连接器框架，让能力可持续生长。
+
 ## ✨ 核心特性
 
 - **通用 Agent 内核**：ReAct（规划—执行）循环，支持工具调用、流式 SSE 输出、多步任务自动拆解与执行；模型「声称已生成文件」但实际未调用工具时会主动提示（防幻觉）。
-- **技能广场（Skills）**：文件化的技能（`SKILL.md`），内置 40+ 技能（PPT 生成、Word 排版、公众号/小红书写作、合同/法务、研报、地图合规、3D/视频、腾讯文档等）；支持版本管理、回滚、可见性控制、安装/卸载。
+- **技能广场（Skills）**：文件化的技能（`SKILL.md`），内置 40+ 技能（PPT 生成、Word 排版、公众号/小红书写作、合同/法务、研报、地图合规、3D/视频、文档等）；支持版本管理、回滚、可见性控制、安装/卸载。
 - **工具库（Tools）**：内置工具（联网搜索、网页抓取、图表、邮件、文生图/视频、PPT/Word 生成、合同风险分析等）+ 用户自定义工具（沙箱执行）+ 外部 **MCP 连接器**。
 - **MCP 连接器框架**：通过 `data/mcp.json` 接入标准 MCP 服务（支持 `streamable-http` 与 `stdio` 两种传输），外部工具自动同步进统一能力目录。
 - **沙箱执行**：用户上传的 Python 代码在受限子进程中运行（AST 静态扫描 + CPU/内存/进程/超时限额 + 降权 + 模块与文件护栏）。
