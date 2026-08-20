@@ -1,11 +1,10 @@
-> 🌐 English version: [README.md](./README.md)
+> 中文版 | [English](./README.md)
 
 # 企业 AI 办公智慧助手（WorkWit）
 
 一个面向企业的、可私有化部署的 **AI Agent（智能体）平台**。后端基于 FastAPI + SQLite，前端是一个零依赖的原生 JS 单页应用，整体用 Docker Compose 一键部署。
 
 它不只是一个「合同审核小工具」——而是一个把 **多模型推理、可扩展技能（Skills）、工具（Tools）、MCP 连接器、沙箱执行、多租户权限、定时自动化、长期记忆** 整合在一起的统一办公智能体底座。开箱内置合同审核、简历筛选等办公场景，也支持通过「技能 + 工具」不断扩展新能力。
-
 
 ---
 
@@ -62,7 +61,7 @@ workwit/
     ├── tools_build.py        # 会话工具装配（DB 定义 → handler 绑定，MCP/沙箱分支）
     ├── tools_handlers.py     # 工具 handler 实现
     ├── llm_adapter.py        # 多模型客户端与能力封装
-    ├── mcp_client.py        # MCP 连接器框架（streamable-http / stdio）
+    ├── mcp_client.py         # MCP 连接器框架（streamable-http / stdio）
     ├── sandbox.py            # 用户代码沙箱执行（AST 扫描 + 资源限额）
     ├── automation_runner.py  # 定时自动化调度器
     ├── admin.py              # 管理后台端点（模型/组织/部门/用户/日志）
