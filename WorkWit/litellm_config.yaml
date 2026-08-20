@@ -1,0 +1,21 @@
+model_list:
+  - model_name: local-30b
+    litellm_params:
+      model: openai/local-30b
+      api_base: ${MODEL_30B_BASE}
+      api_key: ${MODEL_30B_KEY}
+  - model_name: local-vlm-32b
+    litellm_params:
+      model: openai/local-vlm-32b
+      api_base: ${MODEL_VLM_BASE}
+      api_key: ${MODEL_VLM_KEY}
+  - model_name: local-embed
+    litellm_params:
+      model: openai/local-embed
+      api_base: ${MODEL_EMBED_BASE}
+      api_key: ${MODEL_EMBED_KEY}
+  - model_name: local-rerank
+    litellm_params:
+      model: openai/local-rerank
+      api_base: ${MODEL_RERANK_BASE}
+      api_key: ${MODEL_RERANK_KEY}
